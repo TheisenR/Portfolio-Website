@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">RespiScan Analysis View</title>
+  <desc id="desc">Stylized mock screenshot for AI Web Application carousel.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#101828"/>
+      <stop offset="1" stop-color="#172554"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect x="70" y="60" width="1060" height="630" rx="16" fill="#111827" stroke="#334155"/>
+  <rect x="70" y="60" width="1060" height="64" rx="16" fill="#0b1321"/>
+  <text x="110" y="102" fill="#cbd5e1" font-family="Inter, Arial" font-size="24">X-ray Analysis</text>
+  <rect x="110" y="170" width="490" height="470" rx="12" fill="#0f172a" stroke="#334155"/>
+  <circle cx="355" cy="405" r="170" fill="#1e293b"/>
+  <circle cx="355" cy="405" r="145" fill="#0f172a" stroke="#475569" stroke-width="3"/>
+  <ellipse cx="300" cy="380" rx="46" ry="80" fill="#334155"/>
+  <ellipse cx="410" cy="380" rx="46" ry="80" fill="#334155"/>
+  <rect x="660" y="170" width="430" height="300" rx="12" fill="#0f172a" stroke="#334155"/>
+  <rect x="700" y="218" width="350" height="20" rx="6" fill="#334155"/>
+  <rect x="700" y="258" width="260" height="18" rx="6" fill="#334155"/>
+  <rect x="700" y="292" width="300" height="18" rx="6" fill="#334155"/>
+  <rect x="700" y="326" width="210" height="18" rx="6" fill="#334155"/>
+  <rect x="700" y="386" width="200" height="54" rx="10" fill="#e11d3c"/>
+  <text x="748" y="420" fill="#f8fafc" font-family="Inter, Arial" font-size="24">Predict</text>
+  <rect x="660" y="500" width="430" height="140" rx="12" fill="#0f172a" stroke="#334155"/>
+  <text x="690" y="555" fill="#a5b4fc" font-family="JetBrains Mono, monospace" font-size="22">Result: Early signs detected</text>
+  <text x="70" y="720" fill="#93c5fd" font-family="JetBrains Mono, monospace" font-size="22">PROJ.01 • AI WEB APPLICATION • MOCK SCREEN 2</text>
+</svg>

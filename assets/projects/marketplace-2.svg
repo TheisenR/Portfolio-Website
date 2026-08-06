@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Student Marketplace Item Details</title>
+  <desc id="desc">Stylized mock screenshot for Student Marketplace carousel.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#064e3b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect x="80" y="70" width="1040" height="610" rx="16" fill="#0b1220" stroke="#334155"/>
+  <rect x="80" y="70" width="1040" height="68" rx="16" fill="#111827"/>
+  <text x="126" y="113" fill="#d1fae5" font-family="Inter, Arial" font-size="24">Item Details</text>
+  <rect x="130" y="180" width="470" height="450" rx="14" fill="#111827" stroke="#334155"/>
+  <rect x="160" y="214" width="410" height="250" rx="10" fill="#1f2937"/>
+  <rect x="160" y="492" width="220" height="16" rx="6" fill="#475569"/>
+  <rect x="160" y="524" width="320" height="16" rx="6" fill="#475569"/>
+  <rect x="640" y="180" width="430" height="450" rx="14" fill="#111827" stroke="#334155"/>
+  <rect x="680" y="230" width="350" height="22" rx="6" fill="#334155"/>
+  <rect x="680" y="268" width="220" height="18" rx="6" fill="#334155"/>
+  <rect x="680" y="300" width="260" height="18" rx="6" fill="#334155"/>
+  <rect x="680" y="350" width="190" height="54" rx="10" fill="#e11d3c"/>
+  <text x="728" y="385" fill="#f8fafc" font-family="Inter, Arial" font-size="24">Message</text>
+  <rect x="680" y="434" width="280" height="52" rx="10" fill="#16a34a"/>
+  <text x="752" y="468" fill="#f8fafc" font-family="Inter, Arial" font-size="24">Buy Now</text>
+  <text x="80" y="720" fill="#6ee7b7" font-family="JetBrains Mono, monospace" font-size="22">PROJ.02 • STUDENT MARKETPLACE • MOCK SCREEN 2</text>
+</svg>
