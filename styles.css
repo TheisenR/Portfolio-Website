@@ -23,6 +23,7 @@ body{
   background-image:
     repeating-linear-gradient(0deg, var(--line) 0px, var(--line) 1px, transparent 1px, transparent 64px),
     repeating-linear-gradient(90deg, var(--line) 0px, var(--line) 1px, transparent 1px, transparent 64px);
+  overflow-x:hidden;
 }
 
 ::selection{ background:var(--red); color:var(--bg); }
@@ -174,6 +175,7 @@ h1.title .accent{ color:var(--red); }
   font-size:18px;
   color:var(--gray);
   margin:0 0 40px 0;
+  overflow-wrap:anywhere;
 }
 .cursor{
   display:inline-block;
@@ -261,12 +263,12 @@ section{ position:relative; padding:120px 0; }
 /* ---------- about ---------- */
 .about-grid{
   display:grid;
-  grid-template-columns:200px 1fr 1fr;
+  grid-template-columns:240px 1fr 1fr;
   gap:44px;
 }
 .photo-frame{
   position:relative;
-  aspect-ratio:1 / 1;
+  aspect-ratio:3 / 4;
   background:var(--bg-panel);
   border:1px dashed var(--line-strong);
   display:flex;
@@ -277,6 +279,7 @@ section{ position:relative; padding:120px 0; }
 .photo-frame img{
   width:100%; height:100%;
   object-fit:cover;
+  object-position:center top;
   display:block;
 }
 .photo-frame .placeholder{
@@ -387,6 +390,7 @@ section{ position:relative; padding:120px 0; }
   justify-content:space-between;
   gap:14px;
   margin-top:10px;
+  flex-wrap:wrap;
 }
 .shot-btn{
   font-family:'JetBrains Mono',monospace;
@@ -540,6 +544,7 @@ section{ position:relative; padding:120px 0; }
   letter-spacing:0.04em;
 }
 .card-links{ display:flex; gap:20px; }
+.card-links{ flex-wrap:wrap; row-gap:10px; }
 .card-links a{
   font-family:'JetBrains Mono',monospace;
   font-size:12px;
@@ -677,11 +682,15 @@ footer{
   margin-bottom:6px;
   border-bottom:1px solid transparent;
   width:fit-content;
+  overflow-wrap:anywhere;
 }
 .tb-col a:hover{ color:var(--red); border-bottom-color:var(--red); }
 .foot-row{
   display:flex;
   justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px 16px;
   font-family:'JetBrains Mono',monospace;
   font-size:11px;
   color:var(--gray-dim);
@@ -710,7 +719,7 @@ a:focus-visible, button:focus-visible{
   .navlinks a::after{ display:none; }
 
   .about-grid{ grid-template-columns:1fr; gap:32px; }
-  .photo-frame{ width:160px; aspect-ratio:1/1; margin:0 auto; }
+  .photo-frame{ width:180px; aspect-ratio:3/4; margin:0 auto; }
   .about-copy{ text-align:left; }
 
   .projects{ grid-template-columns:1fr; }
@@ -726,10 +735,15 @@ a:focus-visible, button:focus-visible{
 
 @media (max-width:480px){
   .hero{ padding-top:70px; }
+  h1.title{ font-size:clamp(46px, 18vw, 64px); margin-bottom:18px; }
   .lede{ font-size:16px; }
+  .page-hero{ padding:118px 0 56px; }
   .reg{ width:16px; height:16px; }
   .scrollcue{ display:none; }
   .card{ padding:22px 18px 20px; }
+  .shot-controls{ gap:8px; }
+  .shot-btn{ padding:6px 8px; }
+  .titleblock{ gap:20px; }
   .lightbox-nav{
     top:auto;
     bottom:18px;
