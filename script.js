@@ -34,6 +34,88 @@ document.addEventListener('DOMContentLoaded', () => {
     reveals.forEach((element) => element.classList.add('in'));
   }
 
+  const lightbox = document.createElement('div');
+  lightbox.className = 'lightbox';
+  lightbox.innerHTML = '<button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous expanded image">Prev</button><button type="button" class="lightbox-nav lightbox-next" aria-label="Next expanded image">Next</button><button type="button" class="lightbox-close" aria-label="Close expanded image">Close</button><img alt="Expanded project screenshot">';
+  document.body.appendChild(lightbox);
+
+  const lightboxImage = lightbox.querySelector('img');
+  const lightboxClose = lightbox.querySelector('.lightbox-close');
+  const lightboxPrev = lightbox.querySelector('.lightbox-prev');
+  const lightboxNext = lightbox.querySelector('.lightbox-next');
+  const lightboxState = {
+    slides: [],
+    currentIndex: 0,
+    setSlide: null,
+  };
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lightboxState.slides = [];
+    lightboxState.currentIndex = 0;
+    lightboxState.setSlide = null;
+  }
+
+  function openLightbox(slides, index, setSlide) {
+    if (!lightboxImage) {
+      return;
+    }
+    const safeIndex = (index + slides.length) % slides.length;
+    const sourceImage = slides[safeIndex];
+    lightboxImage.src = sourceImage.src;
+    lightboxImage.alt = sourceImage.alt;
+    lightboxState.slides = slides;
+    lightboxState.currentIndex = safeIndex;
+    lightboxState.setSlide = setSlide;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function stepLightbox(offset) {
+    if (!lightbox.classList.contains('open') || !lightboxState.slides.length || !lightboxState.setSlide) {
+      return;
+    }
+
+    const nextIndex = (lightboxState.currentIndex + offset + lightboxState.slides.length) % lightboxState.slides.length;
+    lightboxState.setSlide(nextIndex);
+    openLightbox(lightboxState.slides, nextIndex, lightboxState.setSlide);
+  }
+
+  if (lightboxClose) {
+    lightboxClose.addEventListener('click', closeLightbox);
+  }
+
+  if (lightboxPrev) {
+    lightboxPrev.addEventListener('click', () => stepLightbox(-1));
+  }
+
+  if (lightboxNext) {
+    lightboxNext.addEventListener('click', () => stepLightbox(1));
+  }
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight' && lightbox.classList.contains('open')) {
+      event.preventDefault();
+      stepLightbox(1);
+      return;
+    }
+    if (event.key === 'ArrowLeft' && lightbox.classList.contains('open')) {
+      event.preventDefault();
+      stepLightbox(-1);
+      return;
+    }
+    if (event.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+
   const carousels = document.querySelectorAll('[data-carousel]');
   carousels.forEach((carousel) => {
     const track = carousel.querySelector('[data-track]');
@@ -72,7 +154,17 @@ document.addEventListener('DOMContentLoaded', () => {
       dots.forEach((dot, dotIndex) => {
         dot.classList.toggle('active', dotIndex === currentIndex);
       });
+
+      if (lightbox.classList.contains('open') && lightboxState.slides === slides && lightboxImage) {
+        lightboxImage.src = slides[currentIndex].src;
+        lightboxImage.alt = slides[currentIndex].alt;
+        lightboxState.currentIndex = currentIndex;
+      }
     }
+
+    slides.forEach((slide, slideIndex) => {
+      slide.addEventListener('click', () => openLightbox(slides, slideIndex, setSlide));
+    });
 
     prevBtn.addEventListener('click', () => setSlide(currentIndex - 1));
     nextBtn.addEventListener('click', () => setSlide(currentIndex + 1));

@@ -353,7 +353,7 @@ section{ position:relative; padding:120px 0; }
 }
 .shot-frame{
   position:relative;
-  aspect-ratio:16 / 10;
+  aspect-ratio:16 / 9;
   background:var(--bg);
   border:1px dashed var(--line-strong);
   display:flex;
@@ -378,6 +378,7 @@ section{ position:relative; padding:120px 0; }
   inset:0;
   opacity:0;
   transition:opacity .35s ease;
+  cursor:zoom-in;
 }
 .shot-track img.active{ opacity:1; }
 .shot-controls{
@@ -423,6 +424,71 @@ section{ position:relative; padding:120px 0; }
   border-color:var(--red);
   box-shadow:0 0 8px rgba(225,29,60,.5);
 }
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(0, 0, 0, .84);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .2s ease;
+}
+.lightbox.open{
+  opacity:1;
+  pointer-events:auto;
+}
+.lightbox img{
+  max-width:min(1200px, 92vw);
+  max-height:88vh;
+  width:auto;
+  height:auto;
+  border:1px solid var(--line-strong);
+  box-shadow:0 24px 60px rgba(0, 0, 0, .5);
+  background:var(--bg-panel);
+}
+.lightbox-close{
+  position:absolute;
+  top:16px;
+  right:16px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--white);
+  background:transparent;
+  border:1px solid var(--line-strong);
+  padding:8px 10px;
+  cursor:pointer;
+}
+.lightbox-close:hover{
+  border-color:var(--red-dim);
+  color:var(--red);
+}
+.lightbox-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--white);
+  background:rgba(11,11,13,.88);
+  border:1px solid var(--line-strong);
+  padding:10px 12px;
+  cursor:pointer;
+}
+.lightbox-nav:hover{
+  border-color:var(--red-dim);
+  color:var(--red);
+}
+.lightbox-prev{ left:16px; }
+.lightbox-next{ right:16px; }
 .shot-frame .placeholder{
   text-align:center;
   font-family:'JetBrains Mono',monospace;
@@ -664,6 +730,14 @@ a:focus-visible, button:focus-visible{
   .reg{ width:16px; height:16px; }
   .scrollcue{ display:none; }
   .card{ padding:22px 18px 20px; }
+  .lightbox-nav{
+    top:auto;
+    bottom:18px;
+    transform:none;
+    padding:8px 10px;
+  }
+  .lightbox-prev{ left:18px; }
+  .lightbox-next{ right:18px; }
 }
 
 @media (prefers-reduced-motion:reduce){
