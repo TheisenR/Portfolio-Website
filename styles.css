@@ -19,8 +19,8 @@ body{
   background:var(--bg);
   color:var(--white);
   font-family:'Inter',sans-serif;
-  font-size:clamp(15px, 0.9vw + 0.9rem, 17px);
-  line-height:1.6;
+  font-size:clamp(16px, 0.95vw + 0.95rem, 18px);
+  line-height:1.65;
   background-image:
     repeating-linear-gradient(0deg, var(--line) 0px, var(--line) 1px, transparent 1px, transparent 64px),
     repeating-linear-gradient(90deg, var(--line) 0px, var(--line) 1px, transparent 1px, transparent 64px);
@@ -207,8 +207,8 @@ h1.title{
 }
 h1.title .accent{ color:var(--red); }
 .lede{
-  max-width:560px;
-  font-size:clamp(16px, 1.2vw + 0.9rem, 18px);
+  max-width:580px;
+  font-size:clamp(17px, 1.25vw + 0.95rem, 19px);
   color:var(--gray);
   margin:0 0 24px 0;
   overflow-wrap:anywhere;
@@ -801,7 +801,7 @@ a:focus-visible, button:focus-visible{
 @media (max-width:480px){
   .hero{ padding-top:62px; padding-bottom:12px; }
   h1.title{ font-size:clamp(46px, 18vw, 64px); margin-bottom:18px; }
-  .lede{ font-size:16px; }
+  .lede{ font-size:17px; }
   .page-hero{ padding:118px 0 56px; }
   .reg{ width:16px; height:16px; }
   .scrollcue{ display:none; }
